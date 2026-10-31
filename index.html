@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Age of Sail</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Inter:wght@400;500;600&display=swap"
+    />
+    <script type="module" crossorigin src="./assets/index-K19tHFb1.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/three-DRn49kcf.js">
+    <link rel="stylesheet" crossorigin href="./assets/index-DfcoYm5j.css">
+  </head>
+  <body>
+    <div class="game">
+      <canvas id="sea-3d" aria-label="Your ship at sea. Steer with A and D, row with W and S, set sails with Q and E."></canvas>
+      <div id="labels" class="labels"></div>
+      <canvas id="sea-chart" class="chart" aria-label="Sea chart of the Atlantic" hidden></canvas>
+
+      <header class="hud">
+        <div id="hud-portrait" class="hud-portrait" aria-hidden="true"></div>
+        <div class="hud-date">
+          <span id="date" class="date"></span>
+          <span id="captain" class="status"></span>
+          <span id="status" class="status"></span>
+          <button id="open-fleet" type="button" class="small fleet-button">Fleet book <kbd>F</kbd></button>
+          <button id="open-items" type="button" class="small fleet-button">Items <kbd>I</kbd></button>
+        </div>
+        <div class="supplies">
+          <div class="supply">
+            <span class="supply-label" data-icon="food">Food</span>
+            <span class="meter"><span id="food-bar"></span></span>
+            <span id="food-days" class="supply-days"></span>
+          </div>
+          <div class="supply">
+            <span class="supply-label" data-icon="water">Water</span>
+            <span class="meter water"><span id="water-bar"></span></span>
+            <span id="water-days" class="supply-days"></span>
+          </div>
+          <div class="supply crew">
+            <span class="supply-label" data-icon="crew">Crew</span>
+            <span id="crew" class="supply-days"></span>
+          </div>
+          <div class="supply">
+            <span class="supply-label" data-icon="ducats">Ducats</span>
+            <span id="money" class="supply-days"></span>
+          </div>
+          <div class="supply">
+            <span class="supply-label" data-icon="hold">Hold</span>
+            <span id="hold" class="supply-days"></span>
+          </div>
+        </div>
+        <div class="sailing">
+          <div class="wind" title="Wind">
+            <svg class="wind-dial" viewBox="-20 -20 40 40" aria-hidden="true">
+              <circle r="18" class="dial-face" />
+              <path d="M0 -18 L0 -15 M18 0 L15 0 M0 18 L0 15 M-18 0 L-15 0" class="dial-ticks" />
+              <text y="-9.5" class="dial-north">N</text>
+              <g id="wind-arrow">
+                <path d="M0 -12 L4.5 -2 L1.4 -3 L1.4 11 L-1.4 11 L-1.4 -3 L-4.5 -2 Z" class="dial-arrow" />
+              </g>
+            </svg>
+            <span>
+              <span id="wind-name" class="wind-name"></span>
+              <span id="wind-strength" class="status"></span>
+            </span>
+          </div>
+          <div class="speed">
+            <span id="speed" class="speed-value"></span>
+            <span id="sails" class="status"></span>
+          </div>
+        </div>
+      </header>
+
+      <p id="hint" class="hint"></p>
+      <div id="battle-bar" class="battle-bar" aria-live="polite" hidden></div>
+      <aside id="port-panel" class="port-panel" aria-label="Port market" hidden></aside>
+      <div class="controls">
+        <span>
+          <kbd>A</kbd><kbd>D</kbd> steer · <kbd>W</kbd><kbd>S</kbd> row · <kbd>Q</kbd><kbd>E</kbd> sails ·
+          <kbd>Z</kbd><kbd>X</kbd> fire left, right · <kbd>H</kbd> hail a merchant · <kbd>T</kbd> attack one · <kbd>R</kbd> patch a hole · <kbd>F</kbd> fleet book · <kbd>I</kbd> items · <kbd>M</kbd> chart ·
+          move the mouse to look, scroll to zoom, <kbd>C</kbd> mouse look on/off · <kbd>Space</kbd>
+        </span>
+        <button id="pause" type="button" class="pause">Pause</button>
+      </div>
+
+      <div id="shipyard" class="overlay shipyard" hidden></div>
+      <div id="parley" class="overlay" hidden>
+        <div id="parley-panel" class="scroll parley-scroll" role="dialog" aria-label="Parley with a merchant ship"></div>
+      </div>
+      <div id="items" class="overlay" hidden>
+        <div id="items-panel" class="scroll book-scroll items-scroll" role="dialog" aria-label="Your items"></div>
+      </div>
+      <div id="fleet-book" class="overlay" hidden>
+        <div id="fleet-book-panel" class="scroll book-scroll" role="dialog" aria-label="Fleet book"></div>
+      </div>
+      <div id="event" class="overlay" hidden>
+        <div id="event-panel" class="scroll event-scroll" role="dialog" aria-live="assertive"></div>
+      </div>
+
+      <div id="start" class="overlay start" hidden>
+        <div id="start-panel" class="scroll start-scroll"></div>
+      </div>
+
+      <div id="game-over" class="overlay" hidden>
+        <div class="scroll">
+          <h1>Lost at Sea</h1>
+          <p id="cause"></p>
+          <p id="survived" class="muted"></p>
+          <button id="restart" type="button">Begin a new voyage</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
