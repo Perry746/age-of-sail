@@ -10,16 +10,17 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Inter:wght@400;500;600&display=swap"
     />
-    <script type="module" crossorigin src="./assets/index-C9YY8HV4.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/map-DBF8ltoh.js">
-    <link rel="modulepreload" crossorigin href="./assets/three-Bk0ZVPW5.js">
-    <link rel="stylesheet" crossorigin href="./assets/index-DY76doK9.css">
+    <script type="module" crossorigin src="./assets/index-aZlov8xi.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/map-DFROXSH7.js">
+    <link rel="modulepreload" crossorigin href="./assets/three-De4dBNoB.js">
+    <link rel="stylesheet" crossorigin href="./assets/index-DBg3aGo3.css">
   </head>
   <body>
     <div class="game">
       <canvas id="sea-3d" aria-label="Your ship at sea. Steer with A and D, row with W and S, set sails with Q and E."></canvas>
       <div id="labels" class="labels"></div>
       <canvas id="sea-chart" class="chart" aria-label="Sea chart of the Atlantic" hidden></canvas>
+      <p class="chart-close">Press <kbd>M</kbd> to close the chart</p>
 
       <header class="hud">
         <div id="hud-portrait" class="hud-portrait" aria-hidden="true"></div>
@@ -94,7 +95,7 @@
       <div class="controls">
         <span id="keys">
           <kbd>A</kbd><kbd>D</kbd> steer · <kbd>W</kbd><kbd>S</kbd> row · <kbd>Q</kbd><kbd>E</kbd> sails ·
-          <kbd>Z</kbd><kbd>X</kbd> fire left, right · <kbd>H</kbd> hail a merchant · <kbd>T</kbd> attack one · <kbd>R</kbd> patch a hole · <kbd>F</kbd> fleet book · <kbd>I</kbd> items · <kbd>K</kbd> realms · <kbd>M</kbd> chart ·
+          <kbd>Z</kbd><kbd>X</kbd> fire left, right · <kbd>H</kbd> hail a merchant · <kbd>T</kbd> attack one · <kbd>R</kbd> patch a hole · <kbd>N</kbd> mend sails · <kbd>F</kbd> fleet book · <kbd>I</kbd> items · <kbd>K</kbd> realms · <kbd>M</kbd> chart ·
           move the mouse to look, scroll to zoom, <kbd>C</kbd> mouse look on/off · <kbd>1</kbd>–<kbd>5</kbd> game speed · <kbd>Space</kbd>
         </span>
         <button id="toggle-keys" type="button" class="small" aria-controls="keys">Keys <kbd>?</kbd></button>
@@ -113,6 +114,9 @@
       </div>
       <div id="fleet-book" class="overlay" hidden>
         <div id="fleet-book-panel" class="scroll book-scroll" role="dialog" aria-label="Fleet book"></div>
+      </div>
+      <div id="loot" class="overlay" hidden>
+        <div id="loot-panel" class="scroll book-scroll loot-scroll" role="dialog" aria-label="Plunder"></div>
       </div>
       <div id="event" class="overlay" hidden>
         <div id="event-panel" class="scroll event-scroll" role="dialog" aria-live="assertive"></div>
