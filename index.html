@@ -10,17 +10,17 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Inter:wght@400;500;600&display=swap"
     />
-    <script type="module" crossorigin src="./assets/index-ZKXByQw4.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/map-DFROXSH7.js">
+    <script type="module" crossorigin src="./assets/index-DBMNquO-.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/map-DdN83gNK.js">
     <link rel="modulepreload" crossorigin href="./assets/three-De4dBNoB.js">
-    <link rel="stylesheet" crossorigin href="./assets/index-BxoRMEmJ.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-DkVGzS24.css">
   </head>
   <body>
     <div class="game">
       <canvas id="sea-3d" aria-label="Your ship at sea. Steer with A and D, row with W and S, set sails with Q and E."></canvas>
       <div id="labels" class="labels"></div>
       <canvas id="sea-chart" class="chart" aria-label="Sea chart of the Atlantic" hidden></canvas>
-      <p class="chart-close">Press <kbd>M</kbd> to close the chart</p>
+      <p class="chart-close">Scroll to zoom · Press <kbd>M</kbd> to close the chart</p>
 
       <header class="hud">
         <div id="hud-portrait" class="hud-portrait" aria-hidden="true"></div>
@@ -103,6 +103,14 @@
       </div>
 
       <div id="shipyard" class="overlay shipyard" hidden></div>
+      <aside id="guide-card" class="guide-card" aria-label="Advice from your pilot" hidden>
+        <h2>Your pilot says</h2>
+        <p id="guide-advice"></p>
+        <button id="guide-skip" type="button" class="small">Skip guide</button>
+      </aside>
+      <div id="guide-talk" class="overlay" hidden>
+        <div id="guide-talk-panel" class="scroll guide-talk" role="dialog" aria-label="Talking with your crew"></div>
+      </div>
       <div id="parley" class="overlay" hidden>
         <div id="parley-panel" class="scroll parley-scroll" role="dialog" aria-label="Parley with a merchant ship"></div>
       </div>
