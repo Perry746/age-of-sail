@@ -10,17 +10,32 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Inter:wght@400;500;600&display=swap"
     />
-    <script type="module" crossorigin src="./assets/index-DBMNquO-.js"></script>
+    <script type="module" crossorigin src="./assets/index-CLMxAcDd.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/map-DdN83gNK.js">
-    <link rel="modulepreload" crossorigin href="./assets/three-De4dBNoB.js">
-    <link rel="stylesheet" crossorigin href="./assets/index-DkVGzS24.css">
+    <link rel="modulepreload" crossorigin href="./assets/three-oi5Gf5I4.js">
+    <link rel="stylesheet" crossorigin href="./assets/index-8p9pDlK9.css">
   </head>
   <body>
     <div class="game">
       <canvas id="sea-3d" aria-label="Your ship at sea. Steer with A and D, row with W and S, set sails with Q and E."></canvas>
       <div id="labels" class="labels"></div>
+      <div id="crew-tip" class="crew-tip" role="tooltip" hidden>
+        <strong id="crew-tip-name"></strong>
+        <span id="crew-tip-trade"></span>
+        <span id="crew-tip-doing"></span>
+      </div>
       <canvas id="sea-chart" class="chart" aria-label="Sea chart of the Atlantic" hidden></canvas>
-      <p class="chart-close">Scroll to zoom · Press <kbd>M</kbd> to close the chart</p>
+      <p class="chart-close">Click a port to set a course · Scroll to zoom · Press <kbd>M</kbd> to close the chart</p>
+      <p id="chart-note" class="chart-note" role="status" hidden></p>
+      <div id="chart-plan" class="chart-plan" hidden>
+        <h3 id="plan-title"></h3>
+        <p id="plan-facts"></p>
+        <p id="plan-warning" class="warning" role="alert" hidden></p>
+        <div class="plan-buttons">
+          <button id="plan-go" type="button">Set sail</button>
+          <button id="plan-cancel" type="button">Cancel</button>
+        </div>
+      </div>
 
       <header class="hud">
         <div id="hud-portrait" class="hud-portrait" aria-hidden="true"></div>
@@ -99,6 +114,7 @@
           click the sea, then move the mouse to look (<kbd>Esc</kbd> shows the pointer), scroll to zoom, <kbd>C</kbd> view behind the ship · <kbd>1</kbd>–<kbd>5</kbd> game speed · <kbd>Space</kbd>
         </span>
         <button id="toggle-keys" type="button" class="small" aria-controls="keys">Keys <kbd>?</kbd></button>
+        <button id="sound" type="button" class="small">Sound on</button>
         <button id="pause" type="button" class="pause">Pause</button>
       </div>
 
